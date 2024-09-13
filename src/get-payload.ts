@@ -39,7 +39,9 @@ export const getPayloadClient = async ({ initOptions }: Args = {}): Promise<Payl
     throw new Error('PAYLOAD_SECRET is missing');
   }
 
-  if (cached.client) cached.client;
+  if (cached.client) {
+    return cached.client;
+  }
 
   if (!cached.promise) {
     cached.promise = payload.init({
